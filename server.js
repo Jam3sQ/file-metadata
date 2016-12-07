@@ -13,7 +13,11 @@ app.use('/', express.static(__dirname + '/public'));
 //Post request to get file size 
 app.post('/get-file-size', upload.single('upfile'), function(req, res){
     // console.dir(req.files);
-    console.log(req.file.size);
+    var object = {
+        'size': req.file.size
+    }; 
+    res.end(JSON.stringify(object)); 
+    // console.log(req.file.size);
 }); 
 
 //Allows user to pload and submit a file
