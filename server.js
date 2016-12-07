@@ -12,20 +12,13 @@ app.use('/', express.static(__dirname + '/public'));
 
 //Post request to get file size 
 app.post('/get-file-size', upload.single('upfile'), function(req, res){
-    // console.dir(req.files);
+
+    // Create object to output to user
     var object = {
         'size': req.file.size
     }; 
     res.end(JSON.stringify(object)); 
-    // console.log(req.file.size);
 }); 
-
-//Allows user to pload and submit a file
-// Use a template engine
-// Generate a post request
-// Extract data from that post request 
-// Using mutler npm
-// Recieve size of the file in JSON format
 
 // Port
 app.listen(port, function(){
